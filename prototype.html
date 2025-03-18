@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能记账 - 原型设计</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .prototype-container {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .prototype-section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .prototype-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .mockup-phone {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 20px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .mockup-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .status-bar {
+            height: 44px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .nav-bar {
+            height: 56px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .tab-bar {
+            height: 83px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #eee;
+        }
+        .tab-item {
+            text-align: center;
+            color: #666;
+        }
+        .tab-item.active {
+            color: #007AFF;
+        }
+        .card {
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .transaction-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        .chart-container {
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="prototype-container">
+        <h1 class="text-center mb-4">AI智能记账 App 原型设计</h1>
+        
+        <!-- 首页仪表盘 -->
+        <div class="prototype-section">
+            <h2 class="prototype-title">首页仪表盘</h2>
+            <div class="mockup-phone">
+                <div class="mockup-screen">
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <div>
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    <div class="nav-bar">
+                        <h5 class="mb-0">AI智能记账</h5>
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    
+                    <div class="p-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body">
+                                <h6>本月支出</h6>
+                                <h3>¥3,280.50</h3>
+                                <div class="d-flex justify-content-between">
+                                    <span>较上月 +12%</span>
+                                    <button class="btn btn-light btn-sm">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container"></div>
+                        
+                        <h6 class="mb-3">最近交易</h6>
+                        <div class="transaction-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success text-white rounded-circle p-2 me-2">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">午餐</h6>
+                                        <small class="text-muted">餐饮</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-0">-¥28.00</h6>
+                                    <small class="text-muted">今天 12:30</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab-item active">
+                            <i class="fas fa-home fa-lg"></i>
+                            <div>首页</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-plus-circle fa-lg"></i>
+                            <div>记账</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-chart-pie fa-lg"></i>
+                            <div>分析</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-user fa-lg"></i>
+                            <div>我的</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 记账页面 -->
+        <div class="prototype-section">
+            <h2 class="prototype-title">记账页面</h2>
+            <div class="mockup-phone">
+                <div class="mockup-screen">
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <div>
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    <div class="nav-bar">
+                        <i class="fas fa-arrow-left"></i>
+                        <h5 class="mb-0">记一笔</h5>
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    
+                    <div class="p-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">¥</span>
+                            <input type="text" class="form-control form-control-lg" placeholder="0.00">
+                        </div>
+                        
+                        <div class="row g-2 mb-4">
+                            <div class="col-3">
+                                <div class="card text-center p-3">
+                                    <i class="fas fa-utensils fa-2x mb-2"></i>
+                                    <div>餐饮</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card text-center p-3">
+                                    <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                                    <div>购物</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card text-center p-3">
+                                    <i class="fas fa-bus fa-2x mb-2"></i>
+                                    <div>交通</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card text-center p-3">
+                                    <i class="fas fa-home fa-2x mb-2"></i>
+                                    <div>居住</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">备注</label>
+                            <input type="text" class="form-control" placeholder="添加备注...">
+                        </div>
+                        
+                        <button class="btn btn-primary w-100">保存</button>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab-item">
+                            <i class="fas fa-home fa-lg"></i>
+                            <div>首页</div>
+                        </div>
+                        <div class="tab-item active">
+                            <i class="fas fa-plus-circle fa-lg"></i>
+                            <div>记账</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-chart-pie fa-lg"></i>
+                            <div>分析</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-user fa-lg"></i>
+                            <div>我的</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据分析页面 -->
+        <div class="prototype-section">
+            <h2 class="prototype-title">数据分析页面</h2>
+            <div class="mockup-phone">
+                <div class="mockup-screen">
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <div>
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    <div class="nav-bar">
+                        <h5 class="mb-0">数据分析</h5>
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    
+                    <div class="p-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6>本月支出趋势</h6>
+                                <div class="chart-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6>支出分类占比</h6>
+                                <div class="chart-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>消费排行</h6>
+                                <div class="transaction-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-primary text-white rounded-circle p-2 me-2">
+                                                <i class="fas fa-utensils"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0">餐饮</h6>
+                                                <small class="text-muted">占比 35%</small>
+                                            </div>
+                                        </div>
+                                        <div class="text-end">
+                                            <h6 class="mb-0">¥1,280.00</h6>
+                                            <small class="text-muted">较上月 +8%</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab-item">
+                            <i class="fas fa-home fa-lg"></i>
+                            <div>首页</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-plus-circle fa-lg"></i>
+                            <div>记账</div>
+                        </div>
+                        <div class="tab-item active">
+                            <i class="fas fa-chart-pie fa-lg"></i>
+                            <div>分析</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-user fa-lg"></i>
+                            <div>我的</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人设置页面 -->
+        <div class="prototype-section">
+            <h2 class="prototype-title">个人设置页面</h2>
+            <div class="mockup-phone">
+                <div class="mockup-screen">
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <div>
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                    </div>
+                    <div class="nav-bar">
+                        <h5 class="mb-0">个人中心</h5>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    
+                    <div class="p-3">
+                        <div class="text-center mb-4">
+                            <div class="rounded-circle bg-primary text-white d-inline-flex p-4 mb-3">
+                                <i class="fas fa-user fa-3x"></i>
+                            </div>
+                            <h5>用户名</h5>
+                            <p class="text-muted">ID: 888888</p>
+                        </div>
+                        
+                        <div class="list-group mb-3">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-wallet me-2"></i> 账户管理
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-chart-line me-2"></i> 预算设置
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-export me-2"></i> 数据导出
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-shield-alt me-2"></i> 安全设置
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-question-circle me-2"></i> 帮助与反馈
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-info-circle me-2"></i> 关于我们
+                            </a>
+                        </div>
+                        
+                        <button class="btn btn-outline-danger w-100">退出登录</button>
+                    </div>
+                    
+                    <div class="tab-bar">
+                        <div class="tab-item">
+                            <i class="fas fa-home fa-lg"></i>
+                            <div>首页</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-plus-circle fa-lg"></i>
+                            <div>记账</div>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-chart-pie fa-lg"></i>
+                            <div>分析</div>
+                        </div>
+                        <div class="tab-item active">
+                            <i class="fas fa-user fa-lg"></i>
+                            <div>我的</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
