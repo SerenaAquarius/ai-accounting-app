@@ -118,6 +118,11 @@
                     </div>
                     
                     <div class="p-3">
+                        <!-- 登录/注册入口 -->
+                        <div class="d-flex justify-content-end mb-3">
+                            <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">登录</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">注册</button>
+                        </div>
                         <div class="card bg-primary text-white">
                             <div class="card-body">
                                 <h6>本月支出</h6>
@@ -148,6 +153,71 @@
                                     <small class="text-muted">今天 12:30</small>
                                 </div>
                             </div>
+                        </div>
+                        <!-- AI助手聊天窗口（自动展开） -->
+                        <div id="ai-chat-window" class="card position-fixed" style="right: 30px; bottom: 30px; width: 350px; z-index: 9999; display: none; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-robot me-2"></i>AI助手</span>
+                                <button id="ai-chat-close" class="btn btn-sm btn-light"><i class="fas fa-times"></i></button>
+                            </div>
+                            <div class="card-body" style="height: 220px; overflow-y: auto;">
+                                <div class="mb-2 text-muted">您好，我是您的智能记账助手，有什么可以帮您？</div>
+                                <!-- 聊天内容区域 -->
+                            </div>
+                            <div class="card-footer">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="请输入...">
+                                    <button class="btn btn-info text-white">发送</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 登录模态框 -->
+                        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">登录</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form>
+                                  <div class="mb-3">
+                                    <label for="login-username" class="form-label">用户名</label>
+                                    <input type="text" class="form-control" id="login-username" placeholder="请输入用户名">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="login-password" class="form-label">密码</label>
+                                    <input type="password" class="form-control" id="login-password" placeholder="请输入密码">
+                                  </div>
+                                  <button type="submit" class="btn btn-primary w-100">登录</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- 注册模态框 -->
+                        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="registerModalLabel">注册</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form>
+                                  <div class="mb-3">
+                                    <label for="register-username" class="form-label">用户名</label>
+                                    <input type="text" class="form-control" id="register-username" placeholder="请输入用户名">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="register-password" class="form-label">密码</label>
+                                    <input type="password" class="form-control" id="register-password" placeholder="请输入密码">
+                                  </div>
+                                  <button type="submit" class="btn btn-primary w-100">注册</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                     </div>
                     
@@ -409,5 +479,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 页面加载时自动展开AI助手聊天窗口
+        window.addEventListener('DOMContentLoaded', function() {
+            var chatWindow = document.getElementById('ai-chat-window');
+            if (chatWindow) chatWindow.style.display = 'block';
+            var closeBtn = document.getElementById('ai-chat-close');
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    chatWindow.style.display = 'none';
+                };
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>
